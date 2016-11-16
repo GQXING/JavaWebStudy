@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>JspTest</display-name>
+  <context-param>
+  	<param-name>user</param-name>
+  	<param-value>123456</param-value>
+  </context-param>
+  
+  
+  <servlet>
+  	<servlet-name>hellojsp</servlet-name>
+  	<jsp-file>/hello.jsp</jsp-file>
+  	<init-param>
+  		<param-name>test</param-name>
+  		<param-value>testValue</param-value>
+  	</init-param>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestAttr</servlet-name>
+    <servlet-class>com.gqxing.jsp.TestAttr</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ForwordServlet</servlet-name>
+    <servlet-class>com.gqxing.jsp.ForwordServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>com.gqxing.jsp.TestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RedirectServlet</servlet-name>
+    <servlet-class>com.gqxing.jsp.RedirectServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  
+  <servlet-mapping>
+  	<servlet-name>hellojsp</servlet-name>
+  	<url-pattern>/hellojsp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestAttr</servlet-name>
+    <url-pattern>/testAttr</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ForwordServlet</servlet-name>
+    <url-pattern>/forwordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/testServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/redirectServlet</url-pattern>
+  </servlet-mapping>
+ 	
+ 	
+ 	<error-page>
+ 	<!-- 指定错误的代码 404没有置顶资源 500内部错误 -->
+ 		<error-code>404</error-code>
+ 		<!-- 制定响应页面的位置 -->
+ 		<location>/hello.jsp</location>
+ 		
+ 	</error-page>
+ 	
+ 	<error-page>
+ 	<!--指定异常的类型  -->
+ 		<exception-type> java.lang.ArithmeticException</exception-type>
+ 		<location>/WEB-INF/error.jsp</location>
+ 	</error-page>
+  
+</web-app>

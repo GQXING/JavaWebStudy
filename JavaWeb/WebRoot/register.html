@@ -1,0 +1,94 @@
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>欢迎注册</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <style>
+    #main {
+        width:400px;
+        height: 400px;
+        margin: auto;
+        margin-top: 200px;
+    }
+    
+    #main input {
+        margin-top: 10px;
+    }
+    
+    .btn {
+        width: 80px;
+        height: 30px;
+        background: green;
+        color: white;
+        font-size: 18px;
+    }
+    form{
+        width:400pxs;
+    }
+    #name{
+        display: none;
+    }
+    #uId{
+        display: none;
+    }
+    </style>
+</head>
+<script type="text/javascript"> 
+
+             $(function(){
+                $("#userId").change(function(){
+                   var mreg = /^((201[3-5]{1})\d{5})$/; 
+                            if(!mreg.test($("#userId").val())) 
+                            {
+                                $("#uId").css('display','inline');
+                                $("#btns").attr('disabled',true);
+                                $("#btns").css('background','grey');
+                            } else{
+                                $("#uId").css('display','none');
+                                $("#btns").attr('disabled',false);
+                                $("#btns").css('background','green');
+                            }
+                })
+
+                $("#userName").change(function(){
+                   var nReg = /^[\u4E00-\u9FA5]{2,4}$/;
+                        if (!nReg.test($("#userName").val())) {
+                             $("#name").css('display','inline');
+                        }else{
+                                $("#name").css('display','none');
+                        }
+                })
+
+             });
+     </script>
+<body>
+
+	
+
+    <div id="main">
+        <h2  style="margin-left: 40px;">请填写以下信息</h2>
+        <form action="/JavaWeb/RegisterServlet" method="post">
+            学号：
+            <input type="text" name="userId" id="userId" /><span id="uId" style="color: red">&nbsp;学号只能是8位数字</span>
+            <br /> 姓名：
+            <input type="text" name="userName" id="userName" /><span id="name" style="color: red">&nbsp;名字只能是中文</span>
+            <br />
+            <span>性别：</span>
+            <input type="radio" name="sex" value="男" style="margin-left:20px;" />男
+            <input type="radio" name="sex" value="女" style="margin-left:35px;" />女
+            <br/> 密码：
+            <input type="password" name="password" />
+            <br />
+            <p style="margin-top:10px;margin-left: 80px;">
+                    <input type="submit"  value="注册" style="margin:auto;" class="btn" />
+            </p>
+    </div>
+    </center>
+	
+     
+</body>
+
+
+</html>

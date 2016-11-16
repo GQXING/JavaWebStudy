@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contactList> 
+  <contact id="001"> 
+    <name>张三</name>  
+    <age>20</age>  
+    <phone>134222223333</phone>  
+    <email>zhangsan@qq.com</email>  
+    <qq>432221111</qq> 
+  </contact>  
+  <student33 id="1"> 
+    <name>张三</name>  
+    <gender>男</gender>  
+    <grade>计算机一班</grade>  
+    <address>广州天河</address> 
+  </student33>  
+  <student id="2"> 
+    <name>张三</name>  
+    <gender>男</gender>  
+    <grade>计算机一般</grade>  
+    <address>广州天河</address> 
+  </student>  
+  <student33 id="1"> 
+    <name>张三</name>  
+    <gender>男</gender>  
+    <grade>计算机一班</grade>  
+    <address>广州天河</address> 
+  </student33>  
+  <student id="2"> 
+    <name>张三</name>  
+    <gender>男</gender>  
+    <grade>计算机一般</grade>  
+    <address>广州天河</address> 
+  </student>  
+  <contract id="1">
+    <name>1</name>
+    <sex>1</sex>
+    <age>1</age>
+    <phone>1</phone>
+    <qq>1</qq>
+    <email>1</email>
+  </contract>
+</contactList>

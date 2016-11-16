@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app id="WebApp_ID">
+	<display-name>TestService</display-name>
+
+<!-- 配置当前web应用的初始化参数 -->	
+<context-param>
+	<param-name>driver</param-name>
+	<param-value>com.mysql.jdbc.Driver</param-value>
+</context-param>
+
+<context-param>
+	<param-name>jdbcUrl</param-name>
+	<param-value>jdbc:mysql:///atguigu</param-value>
+</context-param>
+ <servlet>
+    <servlet-name>ThreadDemo</servlet-name>
+    <servlet-class>com.gqxing.servlet2.ThreadDemo</servlet-class>
+ </servlet>
+
+<servlet>
+   
+    <servlet-name>ThreadDemo2</servlet-name>
+    <servlet-class>com.gqxing.servlet2.ThreadDemo2</servlet-class>
+ </servlet>
+<servlet>
+    <servlet-name>Hello</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.gqxing.servlet.Hello</servlet-class>
+   
+    
+    <!-- 配置Servlet注册的名字 -->
+      <init-param>
+         
+      	<param-name>user</param-name>
+      	<param-value>root</param-value>
+      </init-param>
+      
+      <init-param>
+      	<param-name>password</param-name>
+      	<param-value>1230</param-value>
+      </init-param>
+      
+      
+       <load-on-startup>2</load-on-startup>
+ </servlet>
+ 
+ <servlet>
+ 	<!-- Servlet 注册的名字 -->
+    <servlet-name>AServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.gqxing.servlet.AServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+    <!-- 
+    	load-on-startup可以指定servlet被创建时，若为负数，则在第一次请求时创建，
+    	若为0或正数，则在当前web应用被servlet容器加载时创建实例，且数组越小，越早被创建，
+    
+     -->
+ </servlet>
+  <servlet>
+    <servlet-name>ConfigDemo</servlet-name>
+    <servlet-class>com.gqx.servlet.ConfigDemo</servlet-class>
+    <!-- 初始参数： 这些参数会在加载web应用的时候，封装到ServletConfig对象中 -->
+      <init-param>
+    	<param-name>user</param-name>
+    	<param-value>gqxing</param-value>
+    </init-param>
+  </servlet>
+  
+   <servlet>
+    <servlet-name>ConfigDemo1</servlet-name>
+    <servlet-class>com.gqx.servlet.ConfigDemo1</servlet-class>
+    </servlet>
+
+  <servlet>
+    <servlet-name>ContextDemo</servlet-name>
+    <servlet-class>com.gqx.servlet.ContextDemo</servlet-class>
+  </servlet>
+  <servlet>    
+    <servlet-name>ContextDemo2</servlet-name>
+    <servlet-class>com.gqx.servlet.ContextDemo2</servlet-class>
+  </servlet>
+  <servlet>
+    
+    <servlet-name>ContextDemo3</servlet-name>
+    <servlet-class>com.gqx.servlet.ContextDemo3</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Homework</servlet-name>
+    <servlet-class>com.gqx.homework.Homework</servlet-class>
+  </servlet>
+  <servlet>
+   <servlet-name>Test</servlet-name>
+    <servlet-class>com.gqx.load.Test</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ResDemo</servlet-name>
+    <servlet-class>com.gqx.load.ResDemo</servlet-class>
+  </servlet>
+  <servlet>
+   
+    <servlet-name>TryTest</servlet-name>
+    <servlet-class>com.gqx.homework.TryTest</servlet-class>
+  </servlet>
+
+
+
+
+
+
+ 
+ 
+   <servlet-mapping>
+    <servlet-name>Hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+	
+  
+  <servlet-mapping>
+    <servlet-name>ThreadDemo</servlet-name>
+    <url-pattern>/ThreadDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ThreadDemo2</servlet-name>
+    <url-pattern>/ThreadDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConfigDemo</servlet-name>
+    <url-pattern>/ConfigDemo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ConfigDemo1</servlet-name>
+    <url-pattern>/ConfigDemo1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ContextDemo</servlet-name>
+    <url-pattern>/ContextDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo2</servlet-name>
+    <url-pattern>/ContextDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContextDemo3</servlet-name>
+    <url-pattern>/ContextDemo3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Homework</servlet-name>
+    <url-pattern>/Homework</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Test</servlet-name>
+    <url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResDemo</servlet-name>
+    <url-pattern>/ResDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TryTest</servlet-name>
+    <url-pattern>/TryTest</url-pattern>
+  </servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>注册页面</title>
+    <style>
+      center{
+        margin-top: 200px;
+      }
+      input{
+        margin-top: 10px;
+      }
+      .btn{
+        width: 80px;
+        height:30px;
+        background: green;
+        color: white;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h2>欢迎您的到来</h2>
+      <form action="/JavaWeb/LoginServlet" method="post">
+        	学号：<input type="text" name="userId" /><br />
+       		 密码：<input type="password" name="password" /><br />
+        <input type="submit" value="登入" class="btn"/>
+        <a href="/JavaWeb/work1/register.html"><input type="button" value="注册" class="btn" style="margin-left:10px;" /></a>
+      </form>
+    </center>
+  </body>
+</html>

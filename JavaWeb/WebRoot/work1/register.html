@@ -1,0 +1,126 @@
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>欢迎注册</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <style>
+    #main {
+        width:580px;
+        height: 400px;
+        margin: auto;
+        margin-top: 200px;
+    }
+    
+    #main input {
+        margin-top: 10px;
+    }
+    
+    .btn {
+        width: 80px;
+        height: 30px;
+        background: green;
+        color: white;
+        font-size: 18px;
+    }
+    form{
+        width:400pxs;
+    }
+    #name{
+        display: none;
+    }
+    #uId{
+        display: none;
+    }
+    </style>
+</head>
+<script type="text/javascript"> 
+
+             $(function(){
+                $("#userId").change(function(){
+                   var mreg = /^((201[3-5]{1})\d{5})$/; 
+                            if(!mreg.test($("#userId").val())) 
+                            {
+                                $("#uId").css('display','inline');
+                                $("#btns").attr('disabled',true);
+                                $("#btns").css('background','grey');
+                               
+                            } else{
+                                $("#uId").css('display','none');
+                                $("#btns").attr('disabled',false);
+                                $("#btns").css('background','green');
+                            }
+
+                    var val=$("#userId").val();
+                    val=$.trim(val);  //去除空格
+                    if (val != null) {
+                      var url="/JavaWeb/valiateUserId";
+                      var args={"userId":val,"time":new Date()};
+                      	$.post(url, args, function(data) {
+                        $("#exist").html(data);
+                      });
+                    }
+                })
+
+                $("#code").change(function() {
+                    var value=$("#code").val();
+                    value=$.trim(value);
+                    if (value != null) {
+                        var url="/JavaWeb/CodeCheck";
+                        var args={"code":value,"time":new Date()};
+                        $.post(url, args, function(data) {
+                        $("#checkcode").html(data);
+                    });
+                  }
+                })
+
+                $("#userName").change(function(){
+                   var nReg = /^[\u4E00-\u9FA5]{2,4}$/;
+                        if (!nReg.test($("#userName").val())) {
+                             $("#name").css('display','inline');
+                        }else{
+                                $("#name").css('display','none');
+                        }
+                })
+             });
+
+             function changeCode() {
+                var imgNode = document.getElementById("vimg");
+                //重新加载验证码，达到刷新的目的  
+                imgNode.src = "/JavaWeb/AuthImageServlet?t=" + Math.random();  // 防止浏览器缓存的问题 
+            }
+     </script>
+<body>
+
+  
+
+    <div id="main">
+        <h2  style="margin-left: 40px;">请填写以下信息</h2>
+        <form action="/JavaWeb/RegisterServlet" method="post">
+            学&nbsp;号：
+            <input type="text" name="userId" id="userId" /><span id="uId" style="color: red">
+            &nbsp;学号只能是8位数字</span>&nbsp;<span id="exist"></span>
+            <br /> 姓&nbsp;名：
+            <input type="text" name="userName" id="userName" /><span id="name" style="color: red">&nbsp;名字只能是中文</span>
+            <br />
+            <span>性&nbsp;别：</span>
+            <input type="radio" name="sex" value="男" checked="true" style="margin-left:20px;" />男
+            <input type="radio" name="sex" value="女" style="margin-left:35px;" />女
+            <br/> 密&nbsp;码：
+            <input type="password" name="password" />
+            <br />
+            验证码：
+            <input type="text" name="code" id="code">&nbsp;<span id="checkcode" ></span><br>
+            <img id="vimg"  title="点击更换" onclick="changeCode();" src="/JavaWeb/AuthImageServlet" style="margin-left: 99px;margin-top: 10px;"><br/>
+            <p style="margin-top:10px;margin-left:42px;">
+                    <input type="submit"  value="注册" style="margin:auto;" class="btn" id="btns" />
+                    <a href="/JavaWeb/work1/login.html"><input type="button"  value="登入" style="margin:auto;" class="btn" /></a>
+            </p>
+        </form>
+    </div>
+  
+     
+</body>
+
+</html>
